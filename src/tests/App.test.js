@@ -58,8 +58,3 @@ test('checks if links redirect to page ', () => {
   const erroMessage = getByText('Page requested not found');
   expect(erroMessage).toBeInTheDocument();
 });
-
-// test('checks if links redirect to page ', () => {
-//   const { getByText, history, getByTitle } = renderWithRouter(<App />);
-//   console.log(getByTitle('h1'));
-// });

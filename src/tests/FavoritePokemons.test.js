@@ -36,7 +36,6 @@ test('se add to favourites um pokemon ele deve aparecer na URL /favorites', () =
   });
 });
 
-// console.log(localStorage.getItem('favoritePokemonIds'));
 test('os pokemons não add to favourites não devem ser renderizados no favorites', () => {
   const {
     getByText,
