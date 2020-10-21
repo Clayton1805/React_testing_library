@@ -34,8 +34,6 @@ test('se add to favourites um pokemon ele deve aparecer na URL /favorites', () =
   saveNamePokemon.forEach((name) => {
     expect(getByText(name)).toBeInTheDocument();
   });
-  // console.log(localStorage.getItem('favoritePokemonIds'));
-
 });
 
 // console.log(localStorage.getItem('favoritePokemonIds'));
