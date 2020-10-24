@@ -53,8 +53,40 @@ test('', () => {
   });
 });
 
-// test('', () => {
-//   pokemons = jest.fn().mockReturnValue();
-//   const { getByText, getAllByTestId } = renderWithRouter(<App />);
-// });
-// mock.mockClear();
+test('', () => {
+  const backUpPokemons = [...pokemons];
+  // console.log(backUpPokemons);
+  pokemons[0].type = 'jose';
+  pokemons[1].type = 'qualquer1';
+  const dois = 2;
+  pokemons.splice(dois, pokemons.length);
+  // console.log(backUpPokemons);
+
+  // console.log(pokemons);
+
+  const { getAllByTestId } = renderWithRouter(<App />);
+
+  const buttonType = getAllByTestId('pokemon-type-button');
+  expect(buttonType[0].innerHTML).toEqual('jose');
+  expect(buttonType[1].innerHTML).toEqual('qualquer1');
+
+  pokemons[0].type = 'Electric';
+  pokemons[1].type = 'Fire';
+  const zero = 0;
+  pokemons.splice(zero, pokemons.length);
+  // console.log(pokemons);
+  // console.log(backUpPokemons);
+  pokemons.push(...backUpPokemons);
+});
+
+test('oiiiiiiii', () => {
+  const { getByText } = renderWithRouter(<App />);
+
+  expect(getByText('Próximo pokémon').disabled).toEqual(false);
+  fireEvent.click(getByText('Bug'));
+  expect(getByText('Próximo pokémon').disabled).toEqual(true);
+  fireEvent.click(getByText('Fire'));
+  expect(getByText('Próximo pokémon').disabled).toEqual(false);
+  fireEvent.click(getByText('Poison'));
+  expect(getByText('Próximo pokémon').disabled).toEqual(true);
+});
