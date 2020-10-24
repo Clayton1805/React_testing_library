@@ -53,9 +53,8 @@ test('', () => {
   });
 });
 
-test('', () => {
-  pokemons = jest.fn().mockReturnValue();
-  const { getByText, getAllByTestId } = renderWithRouter(<App />);
-  
-});
-mock.mockClear();
+// test('', () => {
+//   pokemons = jest.fn().mockReturnValue();
+//   const { getByText, getAllByTestId } = renderWithRouter(<App />);
+// });
+// mock.mockClear();
