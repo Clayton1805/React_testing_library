@@ -59,14 +59,13 @@ test('', () => {
   });
 });
 
-test('', () => {
-  const { getByText, getByTestId } = renderWithRouter(<App />);
+test('All', () => {
+  const { getByText } = renderWithRouter(<App />);
 
   fireEvent.click(getByText('Bug'));
 
-  const buttonAll = getByTestId('all-pokemon-button');
-  expect(buttonAll.innerHTML).toEqual('All');
-  fireEvent.click(buttonAll);
+  expect(getByText('All')).toBeInTheDocument();
+  fireEvent.click(getByText('All'));
 
   const allPokemons = [...pokemons, ...pokemons];
 
