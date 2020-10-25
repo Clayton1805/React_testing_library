@@ -79,7 +79,6 @@ test('', () => {
       expect(getByText(name)).toBeInTheDocument();
     }
   });
-
 });
 
 test('', () => {
