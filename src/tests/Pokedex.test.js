@@ -4,6 +4,12 @@ import App from '../App';
 import renderWithRouter from './renderWithRouter';
 import pokemons from '../data';
 
+test('se o titulo da pokedex aparece', () => {
+  const { getByText } = renderWithRouter(<App />);
+
+  expect(getByText('Encountered pokémons')).toBeInTheDocument();
+});
+
 test('', () => {
   const { getByText } = renderWithRouter(<App />);
 
@@ -51,6 +57,29 @@ test('', () => {
       }
     });
   });
+});
+
+test('', () => {
+  const { getByText, getByTestId } = renderWithRouter(<App />);
+
+  fireEvent.click(getByText('Bug'));
+
+  const buttonAll = getByTestId('all-pokemon-button');
+  expect(buttonAll.innerHTML).toEqual('All');
+  fireEvent.click(buttonAll);
+
+  const allPokemons = [...pokemons, ...pokemons];
+
+  allPokemons.forEach(({ name }, index) => {
+    const firstIndex = 0;
+    if (index === firstIndex) {
+      expect(getByText(name)).toBeInTheDocument();
+    } else {
+      fireEvent.click(getByText('Próximo pokémon'));
+      expect(getByText(name)).toBeInTheDocument();
+    }
+  });
+
 });
 
 test('', () => {
