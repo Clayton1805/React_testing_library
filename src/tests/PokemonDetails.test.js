@@ -6,7 +6,6 @@ import renderWithRouter from './renderWithRouter';
 
 test('1', () => {
   const { getByText, queryByText } = renderWithRouter(<App />);
-  // fazer um mock da requisição de mais detalhes cujo link é dado no obj
 
   fireEvent.click(getByText('More details'));
 
